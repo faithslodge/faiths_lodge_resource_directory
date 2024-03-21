@@ -5,6 +5,12 @@ import { useSelector } from "react-redux";
 import RecenterAuto from "./RecenterAuto";
 import { Link } from "@mui/joy";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { icon } from "leaflet"
+
+const ICON = icon({
+  iconUrl: "/marker-icon.png",
+  iconSize: [24, 36],
+})
 
 const MapBox = () => {
   // Set the initial position and zoom level of the map
@@ -54,7 +60,7 @@ const MapBox = () => {
       />
       {filteredLat && filteredLong && <RecenterAuto lat={filteredLat} lng={filteredLong} />}
       {orgList.map((org) => (
-        <Marker key={org.id} position={[org?.latitude, org?.longitude]}>
+        <Marker key={org.id} position={[org?.latitude, org?.longitude]} icon={ICON}>
           <Popup>
             <p><b>{org.name}</b></p>
             <Link fontSize={14} onClick={()=>handleDetails(org.id)} >
