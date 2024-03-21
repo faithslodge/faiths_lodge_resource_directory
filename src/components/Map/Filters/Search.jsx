@@ -29,7 +29,7 @@ export default function Search({ }) {
           }}
           sx={{ flex: 1 }}
         >
-          <Input placeholder="Search by Organization Name" startDecorator={<SearchRoundedIcon />} aria-label="Search" />
+          <Input placeholder="Search by Organization or State" startDecorator={<SearchRoundedIcon />} aria-label="Search" />
         </FormControl>
         <Button variant="solid" onClick={searchFunction} sx={{bgcolor: "#658149", ":hover":{bgcolor: "#688948"}}}>
           Search
