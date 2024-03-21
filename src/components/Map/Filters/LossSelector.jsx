@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { FormControl, InputLabel, Select, MenuItem, Checkbox, ListItemText, OutlinedInput } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import US_STATES from "../../../constants/US_STATES";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -15,9 +14,7 @@ const MenuProps = {
 };
 
 export default function LossSelector() {
-  const [open, setOpen] = useState(false);
   const [stateLossTypes, setStateLossTypes] = useState([]);
-  const storeOrgs = useSelector((store) => store.organizations);
   const losses = useSelector((store) => store.options.lossesReducer);
   const filteredOrgs = useSelector((store) => store.filters);
 
@@ -30,14 +27,15 @@ export default function LossSelector() {
     let newList = [];
     for (let loss of lossArray) {
       newList = filteredOrgs?.filter((org) => {
-        for( let orgLoss of org?.agg_loss_type){
-            if(loss == orgLoss.name){
-                return org
-            } 
+        if (org.agg_loss_type != null) {
+          for (let orgLoss of org?.agg_loss_type) {
+            if (loss == orgLoss.name) {
+              return org;
+            }
+          }
         }
       });
     }
-    console.log("NEW LIST", newList)
     dispatch({ type: "SET_FILTER_ORGS", payload: newList });
   };
 

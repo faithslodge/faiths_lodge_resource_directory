@@ -112,7 +112,6 @@ async function postAddress(connection, address) {
 
 // INSERT an organization into DB
 async function postOrganization(connection, organization) {
-    console.log("[postOrganization] organization:", organization);
 
     const organizationQuery = `INSERT INTO "organization"
                                     (

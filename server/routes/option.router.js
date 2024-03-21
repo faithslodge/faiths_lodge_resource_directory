@@ -47,7 +47,6 @@ router.post("/service", rejectUnauthenticated, async (req, res) => {
  * PUT update type of service
  */
 router.put("/service/:id", rejectUnauthenticated, async (req, res) => {
-    console.log("req.body:", req.body)
     const { service } = req.body;
     const { id } = req.params;
 
