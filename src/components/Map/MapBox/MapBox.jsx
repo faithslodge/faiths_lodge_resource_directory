@@ -8,8 +8,9 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { icon } from "leaflet"
 
 const ICON = icon({
-  iconUrl: "/marker-icon.png",
-  iconSize: [24, 36],
+  iconUrl: "/map-marker-svgrepo-com.svg",
+  iconSize: [36, 48],
+  iconAnchor: [18,40],
 })
 
 const MapBox = () => {
