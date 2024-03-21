@@ -3,7 +3,6 @@ import { DataGrid } from "@mui/x-data-grid";
 import { useSelector } from "react-redux";
 import Stack from "@mui/joy/Stack";
 import Typography from "@mui/joy/Typography";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -71,7 +70,6 @@ const columns = [
 
 const ListView = () => {
   const organizations = useSelector((store) => store.organizations);
-  console.log(organizations);
   const history = useHistory()
 
   const handleClick = (row)=>{

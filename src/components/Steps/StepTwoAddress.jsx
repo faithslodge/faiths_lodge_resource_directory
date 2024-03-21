@@ -23,7 +23,6 @@ export default function StepTwoAddress() {
 
   const handleState = (id) => {
     const selectedState = US_STATES.filter((state) => state.id == id);
-    console.log(selectedState[0].name, selectedState[0].abbreviation);
 
     dispatch({
       type: "SET_ADDRESS_OBJECT",

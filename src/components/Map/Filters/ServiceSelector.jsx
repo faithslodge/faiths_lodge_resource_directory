@@ -14,7 +14,6 @@ const MenuProps = {
 };
 
 export default function ServiceSelector() {
-
   const [stateServiceType, setSrviceType] = useState([]);
   const services = useSelector((store) => store.options.servicesReducer);
   const filteredOrgs = useSelector((store) => store.filters);
@@ -28,14 +27,15 @@ export default function ServiceSelector() {
     let newList = [];
     for (let service of serviceArray) {
       newList = filteredOrgs?.filter((org) => {
-        for( let orgService of org?.agg_service_type){
-            if(service == orgService.name){
-                return org
-            } 
+        if (org.agg_service_type != null) {
+          for (let orgService of org?.agg_service_type) {
+            if (service == orgService.name) {
+              return org;
+            }
+          }
         }
       });
     }
-    console.log("NEW LIST", newList)
     dispatch({ type: "SET_FILTER_ORGS", payload: newList });
   };
 
