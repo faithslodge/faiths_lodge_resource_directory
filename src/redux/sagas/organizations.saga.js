@@ -10,7 +10,6 @@ const handleError = (error) => {
 function* fetchOrganizations() {
    try {
       const response = yield axios.get("/api/organization");
-      console.log("FETCH ORG response data:", response.data);
       yield put({ type: "SET_ORGANIZATIONS", payload: response.data });
    } catch (error) {
       handleError(error)
@@ -29,7 +28,7 @@ function* createOrganizations(action) {
             // console.log("[inside createOrganizations of organization.saga] formWithLogo:", formWithLogo);
 
       const logoPostRes = yield axios.post('/api/logo', formWithLogo);
-      console.log("[inside createOrganizations of organization.saga] res from logo upload:", logoPostRes);
+
       // console.log("[inside createOrganizations of organization.saga] the returned logo id:", logoPostRes.data.id);
       // console.log("[inside createOrganizations of organization.saga] organizationDetails:", organizationDetails);
       const logoId = logoPostRes.data.id;
